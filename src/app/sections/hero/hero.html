@@ -1,0 +1,82 @@
+<section #heroEl class="hero" aria-label="Hero section">
+    <!-- Background slider layers -->
+    <div class="bg-stack" aria-hidden="true">
+        <div class="bg-layer" *ngFor="let s of slides; let i = index" [class.active]="i === activeSlide"
+            [style.background-image]="'url(' + s + ')'"></div>
+
+        <div class="bg-glow"></div>
+        <div class="bg-grain"></div>
+        <div class="bg-overlay"></div>
+    </div>
+    <div class="container-fluid px-3 px-md-4 hero-inner">
+        <div class="hero-grid">
+            <!-- Left: content -->
+            <div class="copy">
+                <div class="eyebrow anim a1">{{ eyebrow }}</div>
+
+                <h1 class="anim a2">
+                    {{ headlinePrefix }}
+                    <span class="keyword">
+                        <span class="keyword-text">{{ keywords[activeKeyword] }}</span>
+                        <span class="caret" aria-hidden="true"></span>
+                    </span>
+                </h1>
+
+                <p class="anim a3">{{ description }}</p>
+
+                <div class="cta anim a4">
+                    <!-- <a class="btn btn-reserve" [href]="secondaryCtaHref">{{ secondaryCtaLabel }}</a> -->
+                    <a class="btn btn-outline-light rounded-0 px-4 py-3" [href]="primaryCtaHref">{{ primaryCtaLabel
+                        }}</a>
+                </div>
+
+                <!-- quick trust chips -->
+                <div class="chips anim a5">
+                    <div class="chip"><i class="bi bi-star-fill"></i> Premium Experience</div>
+                    <div class="chip"><i class="bi bi-cup-straw"></i> Signature Cocktails</div>
+                    <div class="chip"><i class="bi bi-people"></i> Events & Parties</div>
+                </div>
+            </div>
+
+            <!-- Right: glass info card -->
+            <aside class="info-card anim a3">
+                <div class="info-top">
+                    <div class="badge">Open Today</div>
+                    <div class="big">Plan your visit</div>
+                    <div class="muted">Fast reservations. Quick response.</div>
+                </div>
+
+                <div class="info-row">
+                    <i class="bi bi-geo-alt"></i>
+                    <div>
+                        <div class="label">Location</div>
+                        <div class="value">{{ locationLine }}</div>
+                    </div>
+                </div>
+
+                <div class="info-row">
+                    <i class="bi bi-clock"></i>
+                    <div>
+                        <div class="label">Hours</div>
+                        <div class="value">{{ hoursLine }}</div>
+                    </div>
+                </div>
+
+                <div class="info-actions">
+                    <!-- <a class="btn btn-outline-light w-100 rounded-0 py-3" [href]="phoneHref">
+                        <i class="bi bi-telephone"></i> Call {{ phoneDisplay }}
+                    </a> -->
+                    <a class="btn btn-reserve w-100" [href]="secondaryCtaHref">
+                        <i class="bi bi-telephone"></i> Reserve Now
+                    </a>
+                </div>
+            </aside>
+        </div>
+
+        <!-- Scroll indicator -->
+        <button type="button" class="scroll" (click)="scrollDown()" aria-label="Scroll down">
+            <span class="mouse" aria-hidden="true"></span>
+            <span class="down" aria-hidden="true"><i class="bi bi-chevron-down"></i></span>
+        </button>
+    </div>
+</section>

@@ -1,1 +1,59 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+    /* Brand palette (inspired by your purple logo + gold mark) */
+    --bg: #070810;
+    /* page base */
+    --surface: rgba(14, 14, 26, 0.72);
+    --surface-2: rgba(18, 18, 34, 0.82);
+
+    --indigo: #191a3a;
+    --plum: #5a2a63;
+
+    --accent: #d6b46d;
+    /* champagne gold */
+    --accent-2: #f0b3df;
+    /* subtle pink highlight (very light use) */
+
+    --text: #f6f3ff;
+    --muted: rgba(246, 243, 255, 0.72);
+
+    --stroke: rgba(255, 255, 255, 0.10);
+    --stroke-2: rgba(214, 180, 109, 0.45);
+
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+html,
+body {
+    height: 100%;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+
+body {
+    margin: 0;
+    font-family: "Poppins", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    background: radial-gradient(1200px 700px at 20% 0%, rgba(90, 42, 99, 0.35), transparent 60%),
+        radial-gradient(1000px 650px at 80% 10%, rgba(25, 26, 58, 0.55), transparent 55%),
+        var(--bg);
+    color: var(--text);
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+}
+
+.btn-reserve {
+    background: linear-gradient(135deg, var(--accent), rgba(240, 179, 223, 0.55));
+    color: #1a1020 !important;
+    padding: 14px 22px;
+    border-radius: 0;
+    font-weight: 700;
+    border: 0;
+    box-shadow: 0 12px 24px rgba(214, 180, 109, 0.18);
+}
+
+.btn-reserve:hover {
+    filter: brightness(0.98);
+}

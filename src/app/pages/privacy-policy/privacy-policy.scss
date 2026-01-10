@@ -1,0 +1,33 @@
+.legal {
+  padding: 40px 0 70px;
+}
+
+.back {
+  display: inline-block;
+  margin-bottom: 18px;
+  color: rgba(246, 243, 255, 0.80);
+  text-decoration: none;
+}
+
+h1 {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(30px, 3vw, 46px);
+  margin: 0 0 6px;
+}
+
+.meta {
+  color: rgba(246, 243, 255, 0.65);
+  margin: 0 0 20px;
+}
+
+h2 {
+  font-size: 18px;
+  margin-top: 22px;
+  margin-bottom: 10px;
+}
+
+p {
+  color: rgba(246, 243, 255, 0.80);
+  line-height: 1.8;
+  max-width: 900px;
+}

@@ -1,0 +1,122 @@
+<section id="contact" class="contact">
+  <div class="container-fluid px-3 px-md-4 px-xl-5">
+    <div class="header">
+      <div class="eyebrow">Contact</div>
+      <h2>Let’s plan your perfect evening.</h2>
+      <p class="sub">
+        Reach us for reservations, private events, or special requests. We’ll respond as soon as possible.
+      </p>
+    </div>
+
+    <div class="grid">
+      <!-- Left: cards + hours -->
+      <div class="left">
+        <div class="cards">
+          <div class="card" *ngFor="let c of cards">
+            <div class="icon">
+              <i class="bi" [class]="c.icon"></i>
+            </div>
+            <div class="body">
+              <div class="title">{{ c.title }}</div>
+              <div class="lines">
+                <div class="line" *ngFor="let l of c.lines">{{ l }}</div>
+              </div>
+
+              <a *ngIf="c.cta" class="link" [href]="c.cta.href" target="_blank" rel="noopener">
+                {{ c.cta.label }} <i class="bi bi-arrow-right-short"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="hours">
+          <div class="hours-top">
+            <i class="bi bi-clock"></i>
+            <div>
+              <div class="hours-title">Open Hours</div>
+              <div class="hours-sub">Everyday • 12:00 PM – 1:00 AM</div>
+            </div>
+          </div>
+
+          <div class="note">
+            For large groups/events, please contact us in advance.
+          </div>
+        </div>
+
+        <div class="map">
+
+          <!-- <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3501.5684791569242!2d77.1277044!3d28.6426925!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d03125102d4e7%3A0x48982e5dea8c905a!2sElia%20Kitchen%20%26%20Bar!5e0!3m2!1sen!2sin!4v1768069631018!5m2!1sen!2sin"
+            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe> -->
+          <iframe title="Elia location map" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3501.5684791569242!2d77.1277044!3d28.6426925!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d03125102d4e7%3A0x48982e5dea8c905a!2sElia%20Kitchen%20%26%20Bar!5e0!3m2!1sen!2sin!4v1768069631018!5m2!1sen!2sin">
+          </iframe>
+        </div>
+      </div>
+
+      <!-- Right: form -->
+      <div class="right">
+        <div class="form-shell">
+          <div class="form-head">
+            <div class="form-title">Send us a message</div>
+            <div class="form-desc">We’ll get back with confirmation or details.</div>
+          </div>
+
+          <form [formGroup]="form" (ngSubmit)="submit()" novalidate>
+            <div class="row2">
+              <div class="field">
+                <label>Name *</label>
+                <input class="form-control" type="text" formControlName="name" placeholder="Your name" />
+                <small class="err" *ngIf="submitted && f.name.invalid">Please enter your name.</small>
+              </div>
+
+              <div class="field">
+                <label>Phone *</label>
+                <input class="form-control" type="tel" formControlName="phone" placeholder="+91 ..." />
+                <small class="err" *ngIf="submitted && f.phone.invalid">Please enter a valid phone number.</small>
+              </div>
+            </div>
+
+            <div class="row2">
+              <div class="field">
+                <label>Email</label>
+                <input class="form-control" type="email" formControlName="email" placeholder="Optional" />
+                <small class="err" *ngIf="submitted && f.email.invalid">Invalid email format.</small>
+              </div>
+
+              <div class="field">
+                <label>Subject *</label>
+                <select class="form-select" formControlName="subject">
+                  <option>Reservation / Query</option>
+                  <option>Private Event</option>
+                  <option>Feedback</option>
+                  <option>Franchise</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="field">
+              <label>Message *</label>
+              <textarea class="form-control" rows="5" formControlName="message"
+                placeholder="Tell us date/time/guests or your request..."></textarea>
+              <small class="err" *ngIf="submitted && f.message.invalid">
+                Please enter at least 10 characters.
+              </small>
+            </div>
+
+            <button class="btn btn-reserve w-100" type="submit" [disabled]="loading">
+              <span *ngIf="!loading">Send Message</span>
+              <span *ngIf="loading">Sending...</span>
+            </button>
+
+            <div class="toast" *ngIf="successToast">
+              <i class="bi bi-check2-circle"></i>
+              Message sent successfully. We’ll contact you soon.
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

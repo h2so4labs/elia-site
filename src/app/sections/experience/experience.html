@@ -1,0 +1,59 @@
+<section id="experience" class="experience">
+  <!-- TOP: Image ribbon -->
+  <div class="ribbon-wrap">
+    <div class="ribbon-bg" aria-hidden="true"></div>
+
+    <div class="container-fluid px-3 px-md-4 px-xl-5">
+      <div class="ribbon">
+        <div class="ribbon-item" *ngFor="let item of ribbon">
+          <div class="ribbon-icon">
+            <i class="bi" [class]="item.icon"></i>
+          </div>
+          <div class="ribbon-title">{{ item.title }}</div>
+          <div class="ribbon-text">{{ item.text }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BOTTOM: Offer block -->
+  <div class="offer-wrap">
+    <div class="container-fluid px-3 px-md-4 px-xl-5">
+      <div class="offer-grid">
+        <!-- Left copy -->
+        <div class="offer-copy">
+          <div class="eyebrow">What We Offer</div>
+          <h2>More than a meal — it’s a night out.</h2>
+          <p>
+            At Elia, every detail is designed to feel premium: from the lighting and music
+            to the plating and cocktails. Whether you’re here for a quick drink or a full
+            celebration, the experience stays consistent—elevated and welcoming.
+          </p>
+
+          <div class="offer-actions">
+            <!-- <a class="btn btn-reserve" href="#reservation">Reserve a Table</a> -->
+            <a class="btn btn-outline-light rounded-0 px-4 py-3" href="#menu">View Menu</a>
+          </div>
+        </div>
+
+        <!-- Right cards -->
+        <div class="offer-cards">
+          <div class="offer-card" *ngFor="let c of offers">
+            <div class="offer-card-icon">
+              <i class="bi" [class]="c.icon"></i>
+            </div>
+            <div class="offer-card-title">{{ c.title }}</div>
+            <div class="offer-card-text">{{ c.text }}</div>
+          </div>
+
+          <!-- Extra highlight tile (different from screenshot; adds uniqueness) -->
+          <div class="offer-highlight">
+            <div class="hl-top">Tonight’s Vibe</div>
+            <div class="hl-mid">Elegant • Social • Warm</div>
+            <div class="hl-bot">Walk in or reserve for the best seats.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

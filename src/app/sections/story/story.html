@@ -1,0 +1,69 @@
+<section id="story" class="story-section">
+  <div class="container-fluid px-3 px-md-4 px-xl-5">
+    <!-- Top info cards -->
+    <div class="info-strip">
+      <div class="info-card" *ngFor="let c of cards">
+        <div class="info-icon">
+          <i class="bi" [class]="c.icon"></i>
+        </div>
+
+        <div class="info-body">
+          <div class="info-title">{{ c.title }}</div>
+          <div class="info-lines">
+            <div class="line" *ngFor="let l of c.lines">{{ l }}</div>
+          </div>
+
+          <a *ngIf="c.link" class="info-link" [href]="c.link.href" target="_blank" rel="noopener">
+            {{ c.link.label }} <i class="bi bi-arrow-right-short"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Story content -->
+    <div class="story-grid">
+      <div class="story-media">
+        <div class="media-frame">
+          <img src="assets/story/story-1.webp" alt="Elia Kitchen & Bar ambience" />
+        </div>
+
+        <!-- subtle badge -->
+        <div class="media-badge">
+          <div class="badge-top">Premium</div>
+          <div class="badge-bottom">Dining &amp; Bar</div>
+        </div>
+      </div>
+
+      <div class="story-content">
+        <div class="kicker">Our Story</div>
+        <h2>The Story</h2>
+
+        <p>
+          Celebrating culinary craftsmanship and a bold bar program, Elia brings together
+          warm hospitality, modern ambience, and flavors that feel both familiar and exciting.
+          From signature cocktails to chef-led plates, every detail is curated for a memorable night out.
+        </p>
+
+        <p>
+          Inspired by timeless elegance with a contemporary edge, our space is designed for
+          intimate dinners, celebrations, and late-evening conversations—paired with premium spirits.
+        </p>
+
+        <blockquote class="quote">
+          “A magical space curated to delight your senses—where ambience meets a promising,
+          luxurious dining experience.”
+        </blockquote>
+
+        <div class="signature">
+          <div class="sig-name">Priyank Sukhija</div>
+          <div class="sig-hand">Priyank Sukhija</div>
+        </div>
+
+        <div class="cta-row">
+          <a class="btn btn-reserve" href="#reservation">Explore Menu</a>
+          <!-- <a class="btn btn-outline-light rounded-0 px-4 py-3" href="#menu">Explore Menu</a> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

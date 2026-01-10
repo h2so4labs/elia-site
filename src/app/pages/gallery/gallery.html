@@ -1,0 +1,83 @@
+<section class="gallery-page">
+  <div class="container-fluid px-3 px-md-4 px-xl-5">
+    <!-- Top header -->
+    <div class="top">
+      <div class="left">
+        <div class="eyebrow">Gallery</div>
+        <h1>Food, Bar & Ambience</h1>
+        <p class="sub">
+          Explore the vibe—crafted plates, signature cocktails, and a luxurious setting designed for unforgettable nights.
+        </p>
+
+        <div class="back">
+          <a routerLink="/" class="btn btn-outline-light rounded-0 px-4 py-3">
+            <i class="bi bi-arrow-left"></i> Back to Home
+          </a>
+        </div>
+      </div>
+
+      <!-- Filter chips -->
+      <div class="filters">
+        <button class="chip" [class.active]="selected==='all'" (click)="setCategory('all')">
+          <i class="bi bi-grid-3x3-gap"></i> All
+        </button>
+        <button class="chip" [class.active]="selected==='food'" (click)="setCategory('food')">
+          <i class="bi bi-egg-fried"></i> Food
+        </button>
+        <button class="chip" [class.active]="selected==='bar'" (click)="setCategory('bar')">
+          <i class="bi bi-cup-straw"></i> Bar
+        </button>
+        <button class="chip" [class.active]="selected==='ambience'" (click)="setCategory('ambience')">
+          <i class="bi bi-lamp"></i> Ambience
+        </button>
+      </div>
+    </div>
+
+    <!-- Masonry grid -->
+    <div class="masonry" [attr.data-filter]="selected">
+      <button
+        class="tile"
+        *ngFor="let item of filtered; let i = index; trackBy: trackBySrc"
+        (click)="openLightbox(i)"
+        type="button"
+      >
+        <img [src]="item.src" [alt]="item.title" loading="lazy" />
+
+        <div class="tile-overlay">
+          <div class="tile-title">{{ item.title }}</div>
+          <div class="tile-sub" *ngIf="item.subtitle">{{ item.subtitle }}</div>
+        </div>
+      </button>
+    </div>
+  </div>
+
+  <!-- Lightbox -->
+  <div class="lightbox" *ngIf="lightboxOpen" (click)="closeLightbox()">
+    <div class="lightbox-inner" (click)="$event.stopPropagation()">
+      <button class="lb-close" (click)="closeLightbox()" type="button" aria-label="Close">
+        <i class="bi bi-x-lg"></i>
+      </button>
+
+      <button class="lb-nav lb-prev" (click)="prev()" type="button" aria-label="Previous">
+        <i class="bi bi-chevron-left"></i>
+      </button>
+
+      <div class="lb-media">
+        <img
+          [src]="filtered[lightboxIndex]?.src"
+          [alt]="filtered[lightboxIndex]?.title"
+        />
+        <div class="lb-caption">
+          <div class="cap-title">{{ filtered[lightboxIndex]?.title }}</div>
+          <div class="cap-sub" *ngIf="filtered[lightboxIndex]?.subtitle">
+            {{ filtered[lightboxIndex]?.subtitle }}
+          </div>
+        </div>
+      </div>
+
+      <button class="lb-nav lb-next" (click)="next()" type="button" aria-label="Next">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </div>
+</section>

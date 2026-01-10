@@ -1,0 +1,107 @@
+<header class="site-header sticky-top" [class.is-scrolled]="scrolled">
+    <!-- TOPBAR -->
+    <div class="topbar">
+        <div class="container-fluid px-3 px-md-4">
+            <div class="topbar-inner">
+                <!-- Left: Call -->
+                <div class="topbar-left">
+                    <a class="call-pill d-none" [href]="phoneHref" aria-label="Call">
+                        <span class="call-ic"><i class="bi bi-telephone"></i></span>
+                        <span class="call-text">
+                            <span class="call-label d-none d-sm-inline">Call</span>
+                            <span class="call-number">{{ phoneDisplay }}</span>
+                        </span>
+                    </a>
+                </div>
+
+                <!-- Center: Brand -->
+                <div class="topbar-center">
+                    <a class="brand" [routerLink]="getFragmentByLabel('Home')" aria-label="Elia">
+                        <div class="brand-title">Elia</div>
+                        <div class="brand-sub">Kitchen &amp; Bar</div>
+                    </a>
+                </div>
+
+                <!-- Right: Actions -->
+                <div class="topbar-right">
+                    <!-- <button class="btn btn-book d-none d-lg-inline-flex" type="button" (click)="reserveNow()">
+                        <i class="bi bi-calendar2-check"></i>
+                        Reserve
+                    </button> -->
+
+                    <button class="icon-btn d-lg-none" type="button" data-bs-toggle="offcanvas"
+                        data-bs-target="#mobileNav" aria-controls="mobileNav" aria-label="Open menu">
+                        <i class="bi bi-list"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- DESKTOP NAV -->
+    <div class="navrow d-none d-lg-block">
+        <div class="container-fluid px-3 px-md-4">
+            <nav class="main-nav" aria-label="Main navigation">
+                <a *ngFor="let item of nav" [href]="getFragmentByLabel(item.label)">
+                    <button type="button" class="nav-link" [class.active]="isActive(item)">
+
+                        {{ item.label }}
+                        <span class="nav-underline" aria-hidden="true"></span>
+                    </button>
+                </a>
+            </nav>
+        </div>
+    </div>
+
+    <!-- MOBILE OFFCANVAS -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="mobileNav" aria-labelledby="mobileNavLabel">
+        <div class="offcanvas-header">
+            <div class="offcanvas-title" id="mobileNavLabel">
+                Elia Kitchen &amp; Bar
+            </div>
+
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
+                aria-label="Close"></button>
+        </div>
+
+        <div class="offcanvas-body">
+            <div class="mobile-actions">
+                <a [href]="getFragmentByLabel('Contact')">
+                    <button class="btn btn-book w-100" type="button" data-bs-dismiss="offcanvas">
+                        <i class="bi bi-calendar2-check"></i> Reserve
+                    </button>
+                </a>
+
+                <a class="btn btn-outline-light w-100 rounded-0 py-3" [href]="phoneHref">
+                    <i class="bi bi-telephone"></i> Call {{ phoneDisplay }}
+                </a>
+
+                <a class="btn btn-outline-light w-100 rounded-0 py-3" [href]="phone2Href">
+                    <i class="bi bi-telephone"></i> Call {{ phone2Display }}
+                </a>
+            </div>
+
+            <div class="mobile-nav">
+                <a *ngFor="let item of nav" [href]="getFragmentByLabel(item.label)">
+                    <button type="button" class="mobile-link" [class.active]="isActive(item)"
+                        data-bs-dismiss="offcanvas">
+                        <span>{{ item.label }}</span>
+                        <i class="bi bi-arrow-right-short"></i>
+                    </button>
+                </a>
+            </div>
+
+            <div class="mobile-social">
+                <a class="social" href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram">
+                    <i class="bi bi-instagram"></i>
+                </a>
+                <a class="social" href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook">
+                    <i class="bi bi-facebook"></i>
+                </a>
+                <a class="social" href="https://youtube.com" target="_blank" rel="noopener" aria-label="YouTube">
+                    <i class="bi bi-youtube"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header>

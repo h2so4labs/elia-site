@@ -1,0 +1,59 @@
+<section id="about" class="about">
+  <div class="container-fluid px-3 px-md-4 px-xl-5">
+    <div class="about-grid">
+      <!-- Media collage -->
+      <div class="about-media">
+        <div class="media-card media-card--primary">
+          <img src="assets/about/about-1.avif" alt="Elia ambience" />
+        </div>
+
+        <div class="media-card media-card--secondary">
+          <img src="assets/about/about-2.jpg" alt="Elia food & cocktails" />
+        </div>
+
+        <div class="media-frame" aria-hidden="true"></div>
+      </div>
+
+      <!-- Content -->
+      <div class="about-content">
+        <div class="eyebrow">About Elia</div>
+        <h2>Where modern dining meets an elevated bar.</h2>
+
+        <p class="lead">
+          Elia Kitchen &amp; Bar is designed for evenings that feel effortless—great music,
+          warm lighting, bold flavors, and cocktails built with precision.
+        </p>
+
+        <p>
+          Whether you’re joining us for a quiet dinner, a lively get-together, or a celebration,
+          our team focuses on one thing: delivering a premium, consistent experience—every visit.
+        </p>
+
+        <div class="highlights">
+          <div class="hl" *ngFor="let h of highlights">
+            <div class="hl-icon">
+              <i class="bi" [class]="h.icon"></i>
+            </div>
+            <div class="hl-body">
+              <div class="hl-title">{{ h.title }}</div>
+              <div class="hl-text">{{ h.text }}</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="cta-row">
+          <!-- <a class="btn btn-reserve" href="#reservation">Reserve a Table</a> -->
+          <a class="btn btn-outline-light rounded-0 px-4 py-3" href="#menu">Explore Menu</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stats -->
+    <div class="stats">
+      <div class="stat" *ngFor="let s of stats">
+        <div class="stat-value">{{ s.value }}</div>
+        <div class="stat-label">{{ s.label }}</div>
+      </div>
+    </div>
+  </div>
+</section>
