@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterLink } from '@angular/router';
 
 type FooterLink = { label: string; href: string };
 type Social = { icon: string; href: string; label: string };
@@ -8,7 +7,7 @@ type Social = { icon: string; href: string; label: string };
 @Component({
   selector: 'app-footer',
   standalone: true,
-  imports: [CommonModule, RouterLink],
+  imports: [CommonModule],
   templateUrl: './footer.html',
   styleUrls: ['./footer.scss']
 })
