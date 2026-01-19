@@ -42,7 +42,7 @@
     <div class="navrow d-none d-lg-block">
         <div class="container-fluid px-3 px-md-4">
             <nav class="main-nav" aria-label="Main navigation">
-                <a *ngFor="let item of nav" [href]="getFragmentByLabel(item.label)">
+                <a *ngFor="let item of nav" [target]="item.blank ? '_blank' : '_self'" [href]="getFragmentByLabel(item.label)">
                     <button type="button" class="nav-link" [class.active]="isActive(item)">
 
                         {{ item.label }}
@@ -82,7 +82,7 @@
             </div>
 
             <div class="mobile-nav">
-                <a *ngFor="let item of nav" [href]="getFragmentByLabel(item.label)">
+                <a *ngFor="let item of nav" [target]="item.blank ? '_blank' : '_self'" [href]="getFragmentByLabel(item.label)">
                     <button type="button" class="mobile-link" [class.active]="isActive(item)"
                         data-bs-dismiss="offcanvas">
                         <span>{{ item.label }}</span>

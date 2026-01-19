@@ -28,7 +28,7 @@ export class HeroComponent implements AfterViewInit, OnDestroy {
 
   /** CTAs */
   @Input() primaryCtaLabel = 'View Menu';
-  @Input() primaryCtaHref = '#menu';
+  @Input() primaryCtaHref = '/menu.pdf';
   @Input() secondaryCtaLabel = 'Reserve';
   @Input() secondaryCtaHref = '#reservation';
 

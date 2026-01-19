@@ -32,12 +32,12 @@ export class HeaderComponent implements OnInit, OnDestroy {
   activeRoute = '';
   activeFragment = '';
 
-  nav: NavItem[] = [
-    { label: 'Home', route: '', fragment: '/' },
-    { label: 'About', route: '', fragment: '#about' },
-    { label: 'Menu', route: '', fragment: '#menu' },
-    { label: 'Gallery', route: '', fragment: '/gallery' },
-    { label: 'Contact', route: '', fragment: '#contact' }
+  nav = [
+    { label: 'Home', route: '', fragment: '/', blank: false },
+    { label: 'About', route: '', fragment: '#about', blank: false },
+    { label: 'Menu', route: '', fragment: '/menu.pdf', blank: true },
+    { label: 'Gallery', route: '', fragment: '/gallery', blank: false },
+    { label: 'Contact', route: '', fragment: '#contact', blank: false }
   ];
 
   getFragmentByLabel(label: string): string | undefined {
